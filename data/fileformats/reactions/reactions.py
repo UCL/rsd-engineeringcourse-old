@@ -2,7 +2,6 @@ import sys
 import os
 import argparse
 
-
 from system import *
 import formats.formatter_factory
 
