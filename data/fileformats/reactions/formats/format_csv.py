@@ -20,7 +20,9 @@ class Formatter:
                 products.append(current)
                 current=row.pop()
             reactants=row
-            system.add(reactants,products,forward,reverse)
+            system.add(reactants,list(reversed(products)),forward,reverse)
         return system
     def write(self,file,system):
-        pass
+        writer=csv.writer(file,lineterminator='\n')
+        for reaction in system.reactions:
+            writer.writerow(reaction.reactants+["-"]+reaction.products+[reaction.rate])

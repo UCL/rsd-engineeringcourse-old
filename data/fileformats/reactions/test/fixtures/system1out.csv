@@ -1,1 +1,4 @@
-Put your example CSV file here
+A,B,-,C,0.1
+C,-,A,B,0.3
+C,-,D,E,0.3
+D,E,-,C,0.2
