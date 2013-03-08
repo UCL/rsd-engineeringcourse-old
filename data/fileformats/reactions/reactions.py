@@ -24,9 +24,8 @@ class Reactions:
         self.out_formatter=self.formatter_factory.formatter_for(self.out_type_string)
         
     def act(self):
-        pass
-        self.system=self.in_formatter.parse(self.infile) 
-        self.out_formatter.write(self.outfile) 
+        self.system=self.in_formatter.parse(open(self.infile)) 
+        self.out_formatter.write(open(self.outfile,'w')) 
         
 def main():
     Reactions(sys.argv).act()

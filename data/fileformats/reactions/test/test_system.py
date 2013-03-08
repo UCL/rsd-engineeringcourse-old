@@ -18,6 +18,6 @@ class TestSystem(unittest.TestCase):
 
     def test_two_reversible_reactions(self):
         self.system.add(["A", "B"],["C"],0.1,0.3)
-        self.system.add(["C"],["D", "E"],0.1,0.3)
+        self.system.add(["C"],["D", "E"],0.3,0.2)
         self.assertItemsEqual(self.system.species,["A", "B", "C", "D", "E"])
         self.assertEqual(len(self.system.reactions),4) 
