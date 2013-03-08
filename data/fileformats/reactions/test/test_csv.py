@@ -13,8 +13,8 @@ class TestSystem(unittest.TestCase):
 
     def test_parse_system1(self):
         system=self.formatter.parse(fixtures.file_for('csv'))  
-        self.assertItemsEqual(system.species,["A", "B", "C"])
-        self.assertEqual(len(system.reactions),2)
+        self.assertItemsEqual(system.species,["A", "B", "C","D","E"])
+        self.assertEqual(len(system.reactions),4)
 
     def test_write_system1(self): 
         system=System()
@@ -26,7 +26,7 @@ class TestSystem(unittest.TestCase):
         self.assertEqual(output.getvalue(),input)
         
     def test_read_write(self):
-        system=self.formatter.parse(file_for('csv'))
+        system=self.formatter.parse(fixtures.file_for('csv'))
         output=StringIO.StringIO()
         self.formatter.write(output,system)
         input==fixtures.file_for('csv').read()
