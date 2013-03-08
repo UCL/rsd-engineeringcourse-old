@@ -42,7 +42,7 @@ You should invent a way that seems plausible to you of storing a reaction system
 
 ###1.2: Write a parser
 
-Using python CSV, write a parser that reads .csv files. You should put your code in reactions/csv.py in the appropriate empty functions.
+Using python CSV, write a parser that reads .csv files. You should put your code in reactions/formats/format_csv.py in the appropriate empty functions.
 A test has been written in reactions/test/test_csv.py 
 You should be able to run this test with:
 	> py.test
@@ -52,6 +52,7 @@ Modify your code until this test passes. Feel free to modify the test if it is n
 
 Using python CSV, write code that writes .csv files. Appropriate tests have been written, which you can invoke with
 	> py.test
+
 You will probably find that you don't expect the output file to be exactly the same as your input example.
 You should add your output example to fixtures/system1out.csv
 Your code should be placed in reactions/csv.py in the appropriate empty functions.
@@ -72,11 +73,11 @@ You should add an extra test.
 
 ###2.1: Fixture and parser
 
-Invent an XML file format for reaction systems, save it in the fixtures folder as system1.xml, and write a parser in reactions/xml.py. Use the python module X to implement your parser. Tests have been written for you in test_xml.py.
+Invent an XML file format for reaction systems, save it in the fixtures folder as system1.xml, and write a parser in reactions/formats/format_xml.py. Use the python module X to implement your parser. Tests have been written for you in test_xml.py.
 
 ###2.2: Serialiser using Mako
 
-Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in reactions/xml.py, and the mako template in reactions/xml.mko
+Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in reactions/formats/format_xml.py, and the mako template in reactions/xml.mko
 
 ###2.3: Extra credit: Serialiser using X
 
