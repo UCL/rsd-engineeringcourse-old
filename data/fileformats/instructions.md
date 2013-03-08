@@ -52,8 +52,10 @@ Modify your code until this test passes. Feel free to modify the test if it is n
 
 Using python CSV, write code that writes .csv files. Appropriate tests have been written, which you can invoke with
 	> py.test
-These tests assume that a correct file, when saved, comes out with the same content as your fixture. Modify the test if this is not appropriate for your format.
-Your code should be placed in reactions/csv.py in the appropriate empty functions. 
+
+	You will probably find that you don't expect the output file to be exactly the same as your input example.
+	You should add your output example to fixtures/system1out.csv
+	Your code should be placed in reactions/csv.py in the appropriate empty functions.
 ###1.4: Check support for large files
 The provided skeleton python program has built in functionality to create a random large reaction system. Run this with:
 	> python -m reactions --bigfile 100 --out reactions/test/fixtures/bigsystem.csv
