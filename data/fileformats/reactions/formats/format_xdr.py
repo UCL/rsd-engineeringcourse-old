@@ -5,7 +5,7 @@ import species
 class Formatter:
     def handles(self):
         return ["xdr"]
-    def parse(self,filename):
-        pass
-    def write(self,filename):
-        pass
+    def parse(self,file):
+        return system.System()
+    def write(self,file,system):
+        pass 
