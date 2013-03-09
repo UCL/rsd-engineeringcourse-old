@@ -40,6 +40,9 @@ class Formatter:
         return system
     def write(self,file,system):
         self.createGraph()
+
+        base=rdflib.BNode()
+        self.graph.add((base,rdflib.RDF["type"],self.rea["system"]))
         
         self.graph.serialize(file)
 
