@@ -11,7 +11,11 @@ class Formatter:
         system=System()
         reader=csv.reader(file)
         for row in reader:
-            reverse=float(row.pop())
+            reverse=row.pop()
+            if reverse!="":
+                reverse=float(reverse)
+            else:
+                reverse=None
             forward=float(row.pop()) 
             products=[]
             reactants=[] 
@@ -22,8 +26,8 @@ class Formatter:
             reactants=row
             system.add(reactants,list(reversed(products)),forward,reverse)
         return system
+
     def write(self,file,system):
         writer=csv.writer(file,lineterminator='\n')
         for reaction in system.reactions:
-            writer.writerow(reaction.reactants+["-"]+reaction.products+[reaction.rate])
-
+            writer.writerow(reaction.reactants+["-"]+reaction.products+[reaction.rate,""]) 
