@@ -26,3 +26,4 @@ class Formatter:
         writer=csv.writer(file,lineterminator='\n')
         for reaction in system.reactions:
             writer.writerow(reaction.reactants+["-"]+reaction.products+[reaction.rate])
+
