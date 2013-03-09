@@ -61,22 +61,42 @@ class Formatter:
                 ?product rdfs:label ?label
             }
             """%reaction)]
+            
             rate=self.querySparql("""\
             SELECT ?rate
             WHERE {
                 ?reaction rdfs:label "%s" .
                 ?reaction rea:rate ?rate .
             }
-            """%reaction)[0]
-              
-            system.add(reactants,products,rate)
-
-        # PUT YOUR PARSER SOLUTION HERE
-
+            """%reaction)
+            try:
+                system.add(reactants,products,float(str(rate[0][0])))
+            except:
+                system.add(reactants,products,float(str(rate[0])))
 
         return system
     def write(self,file,system):
-        pass
-        
-        # PUT YOUR SOLUTION HERE
+        self.createGraph()
+        base=rdflib.BNode()
+        self.graph.add((base,rdflib.RDF["type"],self.rea["system"]))
+        # each species needs its own node ID
+        for species in system.species.values():
+            species.node=rdflib.BNode()
+
+        for number,reaction in enumerate(system.reactions):
+            reaction_node=rdflib.BNode()
+            self.graph.add((base,self.rea["hasReaction"],reaction_node))
+            self.graph.add((reaction_node,rdflib.RDFS["label"],rdflib.Literal(str(number))))
+            self.graph.add((reaction_node,rdflib.RDF["type"],self.rea["reaction"])) 
+            self.graph.add((reaction_node,self.rea["rate"],rdflib.Literal(reaction.rate)))
+            for reactant in reaction.reactants:
+                self.graph.add((reaction_node,self.rea["reactant"],reactant.node))
+                self.graph.add((reactant.node,rdflib.RDF["type"],self.rea["species"]))
+                self.graph.add((reactant.node,rdflib.RDFS["label"],rdflib.Literal(reactant.label)))
+            for product in reaction.products:
+                self.graph.add((reaction_node,self.rea["product"],product.node))
+                self.graph.add((product.node,rdflib.RDF["type"],self.rea["species"]))
+                self.graph.add((product.node,rdflib.RDFS["label"],rdflib.Literal(product.label)))
+                            
+        self.graph.serialize(file)
           
