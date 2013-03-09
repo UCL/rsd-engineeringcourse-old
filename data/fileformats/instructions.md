@@ -35,6 +35,11 @@ You should fork this repo on GitHub into your own account, check out the *traine
 
 1: CSV
 ------
+###1.0: Read about CSV 
+
+Wiki pages: http://en.wikipedia.org/wiki/Comma-separated_values
+http://en.wikipedia.org/wiki/Delimiter-separated_values
+http://www.creativyst.com/Doc/Articles/CSV/CSV01.htm
 
 ###1.1: Write a fixture
 
@@ -72,18 +77,19 @@ You should add an extra test.
 
 ###2.1: Fixture and parser
 
-Invent an XML file format for reaction systems, save it in the fixtures folder as system1.xml, and write a parser in reactions/formats/format_xml.py. Use the python module X to implement your parser. Tests have been written for you in test_xml.py.
+Invent an XML file format for reaction systems, save it in the fixtures folder as system1.xml, and write a parser in reactions/formats/format_xml.py. Use the python module elementtree to implement your parser. Tests have been written for you in test_xml.py.
 
 ###2.2: Serialiser using Mako
 
 Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in reactions/formats/format_xml.py, and the mako template in reactions/xml.mko
 
-###2.3: Extra credit: Serialiser using X
+###2.3: Extra credit: Using lxml
 
-Write mako code to create your XML file format using X, by building up your DOM. The scaffold code has been written to enable this option using --nomako
+Write mako code to create your XML file format using lxml, by building up your DOM. The scaffold code has been written to enable this option using --nomako
        
-###2.4: To your neighbour's format using XSLT
- 
+###2.4: Extra credit: To your neighbour's format using XSLT
+
+Read about XSLT at http://www.w3schools.com/xsl/xsl_intro.asp 
 Obtain a copy of system1.xml from your neighbour (they should be able to email it to you).
 Write an XSL transform to produce your neighbour's XML format from your own. Invoke your transform using xsltproc.
 If you're working alone on this project, then you should look at the authors' answers (in the *author_answers* branch on this repo) and write a transform to produce that output.
@@ -98,7 +104,7 @@ Write an XML Schema for your file format, put it in reactions/schemas/reaction.x
 Check your XML fixture validates against the schema using xmllint, e.g.:
 	> xmllint --noout --schema reactions/schemas/reaction.xsd 
 Add code to your program to validate XML files against the schema before loading them, using ***.
-C
+
 
 3: YAML and JSON 
 -------
@@ -145,4 +151,24 @@ Decide how to represent a reaction model as an HDF5 file format. Implement a ser
 Consider the relative performance of HDF5 for large files, as you did with XDR.
 
 7: RDF
+------
 
+Develop an RDF format for chemical reactions of your own.
+
+You should read through the W3Schools RDF tutorial at http://www.w3schools.com/rdf/rdf_intro.asp
+ 
+The example at http://www.w3schools.com/rdf/rdf_example.asp shows the kind of thing you should aim for
+
+You should probably use terms from the systems biology ontology. An OWL file for SBO is at http://www.ebi.ac.uk/sbo/exports/Main/SBO_OWL.owl
+The root namespace for this ontology is at http://biomodels.net/SBO/, so in XML/RDF, the SBO entity for a "rate constant" can be referred to unambiguously as http://biomodels.net/SBO/#SBO:0000009
+You might want to consider using the following elements from the systems biology ontology:
+
+id: SBO:0000009
+id: SBO:0000010
+id: SBO:0000011
+id: SBO:0000012
+id: SBO:0000176
+
+But you may find better choices.
+
+There's a lot of boiler plate to get right using Python's rdflib, so the work of importing the ontologies, creating the triple store, and reading and writing the files has been done for you. 
