@@ -10,3 +10,4 @@ class Formatter:
         return system
     def write(self,file,system):
         pass   
+

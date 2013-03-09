@@ -1,4 +1,4 @@
-import species
+import species as sp
 import reaction
 
 class System:
@@ -11,7 +11,7 @@ class System:
 
     def add_species(self,species): 
         if not str(species) in self.species:
-            self.species[str(species)] = species
+            self.species[str(species)] = sp.Species(species)
         return self.get_species(species)
 
     def add(self,reactants,products,forward,reverse=None):
@@ -21,6 +21,7 @@ class System:
             self.add_species(product) 
         system_reactants = [self.get_species(reactant) for reactant in reactants]
         system_products = [self.get_species(product) for product in products]
+        
         self.reactions.append(reaction.Reaction(system_reactants, system_products, forward))
         if reverse:
             self.reactions.append(reaction.Reaction(system_products, system_reactants, reverse))

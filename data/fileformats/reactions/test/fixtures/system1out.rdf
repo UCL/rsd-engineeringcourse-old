@@ -1,1 +1,67 @@
-Put your example RDF file here
+'<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:rea="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#"
+>
+  <rdf:Description rdf:nodeID="N5db1677d0e5641d19ad251655a2efe9a">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#reaction"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</rdfs:label>
+    <rea:product rdf:nodeID="Na0f25c7a15cc46f6a1be7e56cd2a88d3"/>
+    <rea:product rdf:nodeID="N411f808bddbb45119c08c047a31bd0d8"/>
+    <rea:reactant rdf:nodeID="N4610d4b04c0d42e594839d70b4f5ed7a"/>
+    <rea:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</rea:rate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N06491c64f47d4e2f906efbd42416491d">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#reaction"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdfs:label>
+    <rea:product rdf:nodeID="Ne8b5a71de4794475b13c53e264d0d698"/>
+    <rea:product rdf:nodeID="N127367a6e1794ec792b576a6a1c4e580"/>
+    <rea:reactant rdf:nodeID="N4610d4b04c0d42e594839d70b4f5ed7a"/>
+    <rea:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</rea:rate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N127367a6e1794ec792b576a6a1c4e580">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#species"/>
+    <rdfs:label>A</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N411f808bddbb45119c08c047a31bd0d8">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#species"/>
+    <rdfs:label>D</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4610d4b04c0d42e594839d70b4f5ed7a">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#species"/>
+    <rdfs:label>C</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na0f25c7a15cc46f6a1be7e56cd2a88d3">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#species"/>
+    <rdfs:label>E</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne8b5a71de4794475b13c53e264d0d698">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#species"/>
+    <rdfs:label>B</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N64bb22daa032417195e4e67d13da98e7">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#reaction"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</rdfs:label>
+    <rea:product rdf:nodeID="N4610d4b04c0d42e594839d70b4f5ed7a"/>
+    <rea:reactant rdf:nodeID="Na0f25c7a15cc46f6a1be7e56cd2a88d3"/>
+    <rea:reactant rdf:nodeID="N411f808bddbb45119c08c047a31bd0d8"/>
+    <rea:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</rea:rate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N70b8aaadcc4c4343ad22c82eac0a84ad">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#reaction"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</rdfs:label>
+    <rea:product rdf:nodeID="N4610d4b04c0d42e594839d70b4f5ed7a"/>
+    <rea:reactant rdf:nodeID="Ne8b5a71de4794475b13c53e264d0d698"/>
+    <rea:reactant rdf:nodeID="N127367a6e1794ec792b576a6a1c4e580"/>
+    <rea:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</rea:rate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N964d865b85df46ba874098c40cc64727">
+    <rdf:type rdf:resource="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#system"/>
+    <rea:hasReaction rdf:nodeID="N5db1677d0e5641d19ad251655a2efe9a"/>
+    <rea:hasReaction rdf:nodeID="N64bb22daa032417195e4e67d13da98e7"/>
+    <rea:hasReaction rdf:nodeID="N70b8aaadcc4c4343ad22c82eac0a84ad"/>
+    <rea:hasReaction rdf:nodeID="N06491c64f47d4e2f906efbd42416491d"/>
+  </rdf:Description>
+</rdf:RDF>
+'
