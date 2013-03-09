@@ -39,7 +39,8 @@ class Formatter:
 
         return system
     def write(self,file,system):
-        pass
+        self.createGraph()
         
-        # PUT YOUR SOLUTION HERE
+        self.graph.serialize(file)
+
           
