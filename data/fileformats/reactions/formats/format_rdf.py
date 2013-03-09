@@ -28,6 +28,43 @@ class Formatter:
     def parse(self,file):
         self.loadGraph(file)
         system=System() 
+        reactions=[x[0] for x in self.querySparql("""\
+        SELECT ?label
+        WHERE {
+            ?reaction rdf:type rea:reaction .
+            ?reaction rdfs:label ?label
+        }
+        """)] 
+
+                
+        for reaction in reactions:
+            
+            reactants=[x[0] for x in self.querySparql("""\
+            SELECT ?label
+            WHERE {
+                ?reaction rdfs:label "%s" .
+                ?reaction rea:reactant ?reactant .
+                ?reactant rdfs:label ?label .
+            }
+            """%reaction)]
+            
+            products=[x[0] for x in self.querySparql("""\
+            SELECT ?label
+            WHERE {
+                ?reaction rdfs:label "%s" .
+                ?reaction rea:product ?product .
+                ?product rdfs:label ?label
+            }
+            """%reaction)]
+            rate=self.querySparql("""\
+            SELECT ?rate
+            WHERE {
+                ?reaction rdfs:label "%s" .
+                ?reaction rea:rate ?rate .
+            }
+            """%reaction)[0]
+              
+            system.add(reactants,products,rate)
 
 
         return system
