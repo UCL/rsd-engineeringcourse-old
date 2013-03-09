@@ -6,70 +6,34 @@
    xmlns:rea="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#"
 >
   <rea:system rdf:ID="system1">
-    <rea:reactions>
-      <rdf:Bag>
-		<rdf:li>
-			<rea:reaction>
-				<rea:rate rdf:datatype="xsd:float">0.1</rea:rate>
-				<rea:reactants>
-					<rdf:Bag>
-						<rea:species rdf:ID="A">
-						<rea:species rdf:ID="B">	
-					</rdf:Bag>
-				</rea:reactants>
-				<rea:products>
-					<rdf:Bag>
-						<rea:species rdf:ID="C">
-					</rdf:Bag>
-				</rea:products>
-			</rea:reaction>
+	<rea:hasReaction>
+		<rea:reaction rdfs:label="1F">
+			<rea:rate rdf:datatype="xsd:float">0.1</rea:rate>
+			<rea:reactant><rea:species rdf:ID="A" rdfs:label="A"/></rea:reactant>
+			<rea:reactant><rea:species rdf:ID="B" rdfs:label="B"/></rea:reactant>	
+			<rea:product><rea:species  rdf:ID="C" rdfs:label="C"/></rea:product>
+		</rea:reaction>
 
-			<rea:reaction>
-				<rea:rate rdf:datatype="xsd:float">0.2</rea:rate>
-				<rea:reactants>
-					<rdf:Bag>
-						<rea:species rdf:ID="D">
-						<rea:species rdf:ID="E">	
-					</rdf:Bag>
-				</rea:reactants>
-				<rea:products>
-					<rdf:Bag>
-						<rea:species rdf:ID="C">
-					</rdf:Bag>
-				</rea:products>
-			</rea:reaction>
-			
-			<rea:reaction>
-				<rea:rate rdf:datatype="xsd:float">0.3</rea:rate>
-				<rea:reactants>
-					<rdf:Bag>
-						<rea:species rdf:ID="C">
-					</rdf:Bag>
-				</rea:reactants>
-				<rea:products>
-					<rdf:Bag>
-						<rea:species rdf:ID="A">
-						<rea:species rdf:ID="B">
-					</rdf:Bag>
-				</rea:products>
-			</rea:reaction>
-			
-			<rea:reaction>
-				<rea:rate rdf:datatype="xsd:float">0.3</rea:rate>
-				<rea:reactants>
-					<rdf:Bag>
-						<rea:species rdf:ID="C">	
-					</rdf:Bag>
-				</rea:reactants>
-				<rea:products>
-					<rdf:Bag>
-						<rea:species rdf:ID="D">
-						<rea:species rdf:ID="E">
-					</rdf:Bag>
-				</rea:products>
-			</rea:reaction>
-		</rdf:li>
-     </rdf:Bag>
-    </rea:reactions>
+		<rea:reaction rdfs:label="1R">
+			<rea:rate rdf:datatype="xsd:float">0.3</rea:rate>
+			<rea:reactant rdf:resource="#C"/>
+			<rea:product><rea:species rdf:ID="D" rdfs:label="D"/></rea:product>	
+			<rea:product><rea:species rdf:ID="E" rdfs:label="E"/></rea:product>
+		</rea:reaction>
+		
+		<rea:reaction rdfs:label="2F">
+			<rea:rate rdf:datatype="xsd:float">0.3</rea:rate>
+			<rea:product rdf:resource="#A"/>
+			<rea:product rdf:resource="#B"/>	
+			<rea:reactant rdf:resource="#C"/>
+		</rea:reaction>
+		
+		<rea:reaction rdfs:label="2R">
+			<rea:rate rdf:datatype="xsd:float">0.3</rea:rate>
+			<rea:product rdf:resource="#C"/>
+			<rea:reactant rdf:resource="#D"/>	
+			<rea:reactant rdf:resource="#E"/>
+		</rea:reaction>
+	</rea:hasReaction>
   </rea:system>
 </rdf:RDF>
