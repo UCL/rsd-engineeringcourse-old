@@ -50,13 +50,13 @@ You should invent a way that seems plausible to you of storing a reaction system
 Using python CSV, write a parser that reads .csv files. You should put your code in reactions/formats/format_csv.py in the appropriate empty functions.
 A test has been written in reactions/test/test_csv.py 
 You should be able to run this test with:
-	> py.test
+	> py.test -k csv
 Modify your code until this test passes. Feel free to modify the test if it is not appropriate to your test case. You may want to add more tests.
 
 ###1.3: Write a serialiser
 
 Using python CSV, write code that writes .csv files. Appropriate tests have been written, which you can invoke with
-	> py.test
+	> py.test -k csv
 
 	You will probably find that you don't expect the output file to be exactly the same as your input example.
 	You should add your output example to fixtures/system1out.csv
@@ -65,7 +65,7 @@ Using python CSV, write code that writes .csv files. Appropriate tests have been
 The provided skeleton python program has built in functionality to create a random large reaction system. Run this with:
 	> python -m reactions --bigfile 100 --out reactions/test/fixtures/bigsystem.csv
 and bigsystem.csv should appear in your fixtures folder, and contain a big CSV system. When this works, the full set of tests invoked with
-	> py.test 
+	> py.test -k csv
 should pass.
 
 ###1.5: Extra credit: add support for comments
