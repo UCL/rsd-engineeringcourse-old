@@ -154,22 +154,35 @@ Consider the relative performance of HDF5 for large files, as you did with XDR.
 7: RDF
 ------
 
-Develop an RDF format for chemical reactions of your own.
-
+###7.0: Read about RDF
 You should read through the W3Schools RDF tutorial at http://www.w3schools.com/rdf/rdf_intro.asp
  
-The example at http://www.w3schools.com/rdf/rdf_example.asp shows the kind of thing you should aim for
+###7.1: Create an RDF file for reactions
+ 
+A starting ontology has been begun in reactions/schemas/ontology, you can use these terms in your file.
+You should create your example file in system1.rdf: we've set up a scaffold for you.
+ 
+###7.2: Write a parser and a serialiser
+There's a lot of boiler plate to get right using Python's rdflib, so the work of importing the ontologies, creating the triple store, and reading and writing the files has been done for you.
 
-You should probably use terms from the systems biology ontology. An OWL file for SBO is at http://www.ebi.ac.uk/sbo/exports/Main/SBO_OWL.owl
+###7.3: (Extra credit) Modify the ontology
+
+The existing ontology is just a skeleton, mentioning that the classes exist.
+You can use OWL http://www.w3.org/TR/2004/REC-owl-guide-20040210/ to specify the relationships of the entities.
+This would make it easier for someone else's program to automatically understand your format
+
+You could also use owl:sameAs to declare that your concepts are the same as those in another format. That's how you
+make your formats understandable to the world. 
+You could link your entities to terms from the systems biology ontology. An OWL file for SBO is at http://www.ebi.ac.uk/sbo/exports/Main/SBO_OWL.owl
 The root namespace for this ontology is at http://biomodels.net/SBO/, so in XML/RDF, the SBO entity for a "rate constant" can be referred to unambiguously as http://biomodels.net/SBO/#SBO:0000009
 You might want to consider using the following elements from the systems biology ontology:
 
-id: SBO:0000009
-id: SBO:0000010
-id: SBO:0000011
-id: SBO:0000012
-id: SBO:0000176
+* 0000009
+* 0000010
+* 0000011
+* 0000012
+* 0000176
+* 0000205
 
-But you may find better choices.
+But you may find better choices, or make reference to a different ontology.
 
-There's a lot of boiler plate to get right using Python's rdflib, so the work of importing the ontologies, creating the triple store, and reading and writing the files has been done for you. 
