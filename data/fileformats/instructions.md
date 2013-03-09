@@ -155,7 +155,9 @@ Consider the relative performance of HDF5 for large files, as you did with XDR.
 ------
 
 ###7.0: Read about RDF
-You should read through the W3Schools RDF tutorial at http://www.w3schools.com/rdf/rdf_intro.asp
+You should read through the W3Schools RDF tutorial at http://www.w3schools.com/rdf/rdf_intro.asp and the python RDF library docs at https://rdflib.readthedocs.org/en/latest/gettingstarted.html   
+
+You should use easy_install or pip to install rdflib and rdfextras
  
 ###7.1: Create an RDF file for reactions
  
