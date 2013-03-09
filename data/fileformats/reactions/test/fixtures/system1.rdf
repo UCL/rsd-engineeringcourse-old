@@ -1,1 +1,11 @@
-Put your example RDF file here
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns:rea="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#"
+>
+  <rea:system rdf:ID="system1">
+<!--- Put your reaction description here-->
+  </rea:system>
+</rdf:RDF>
