@@ -6,6 +6,70 @@
    xmlns:rea="http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#"
 >
   <rea:system rdf:ID="system1">
-<!--- Put your reaction description here-->
+    <rea:reactions>
+      <rdf:Bag>
+		<rdf:li>
+			<rea:reaction>
+				<rea:rate rdf:datatype="xsd:float">0.1</rea:rate>
+				<rea:reactants>
+					<rdf:Bag>
+						<rea:species rdf:ID="A">
+						<rea:species rdf:ID="B">	
+					</rdf:Bag>
+				</rea:reactants>
+				<rea:products>
+					<rdf:Bag>
+						<rea:species rdf:ID="C">
+					</rdf:Bag>
+				</rea:products>
+			</rea:reaction>
+
+			<rea:reaction>
+				<rea:rate rdf:datatype="xsd:float">0.2</rea:rate>
+				<rea:reactants>
+					<rdf:Bag>
+						<rea:species rdf:ID="D">
+						<rea:species rdf:ID="E">	
+					</rdf:Bag>
+				</rea:reactants>
+				<rea:products>
+					<rdf:Bag>
+						<rea:species rdf:ID="C">
+					</rdf:Bag>
+				</rea:products>
+			</rea:reaction>
+			
+			<rea:reaction>
+				<rea:rate rdf:datatype="xsd:float">0.3</rea:rate>
+				<rea:reactants>
+					<rdf:Bag>
+						<rea:species rdf:ID="C">
+					</rdf:Bag>
+				</rea:reactants>
+				<rea:products>
+					<rdf:Bag>
+						<rea:species rdf:ID="A">
+						<rea:species rdf:ID="B">
+					</rdf:Bag>
+				</rea:products>
+			</rea:reaction>
+			
+			<rea:reaction>
+				<rea:rate rdf:datatype="xsd:float">0.3</rea:rate>
+				<rea:reactants>
+					<rdf:Bag>
+						<rea:species rdf:ID="C">	
+					</rdf:Bag>
+				</rea:reactants>
+				<rea:products>
+					<rdf:Bag>
+						<rea:species rdf:ID="D">
+						<rea:species rdf:ID="E">
+					</rdf:Bag>
+				</rea:products>
+			</rea:reaction>
+		</rdf:li>
+     </rdf:Bag>
+    </rea:reactions>
   </rea:system>
 </rdf:RDF>
