@@ -8,7 +8,7 @@
   <rdfs:comment>Skeleton OWL ontology for reactions example</rdfs:comment>
   <rdfs:label>Reactions Ontology</rdfs:label>
 	<owl:Class rdf:ID="system"/>
-	<owl:Class rdf:ID="reactions"/>
+	<owl:Class rdf:ID="hasReaction"/>
 	<owl:Class rdf:ID="reaction"/>
 	<owl:Class rdf:ID="reactant"/>
 	<owl:Class rdf:ID="product"/>
