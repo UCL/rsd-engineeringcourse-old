@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF    
+    xmlns:owl ="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf ="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+> 
+<owl:Ontology rdf:ID="ontology"> 
+  <rdfs:comment>Skeleton OWL ontology for reactions example</rdfs:comment>
+  <rdfs:label>Reactions Ontology</rdfs:label>
+	<owl:Class rdf:ID="system"/>
+	<owl:Class rdf:ID="reactions"/>
+	<owl:Class rdf:ID="reaction"/>
+	<owl:Class rdf:ID="reactant"/>
+	<owl:Class rdf:ID="product"/>
+	<owl:Class rdf:ID="rate"/>
+</owl:Ontology> 
+
+</rdf:RDF>
