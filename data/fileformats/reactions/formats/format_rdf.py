@@ -29,6 +29,7 @@ class Formatter:
         self.loadGraph(file)
         system=System() 
 
+        # PUT YOUR PARSER SOLUTION HERE
 
         return system
     def write(self,file,system):
