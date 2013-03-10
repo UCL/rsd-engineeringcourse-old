@@ -1,1 +1,16 @@
-Put your example YAML file here
+# Example yaml file
+- products: [C]
+  rate: 0.1
+  reactants: [A, B]
+
+- products: [D, E]
+  rate: 0.3
+  reactants: [C]
+
+- products: [A, B]
+  rate: 0.3
+  reactants: [C]
+
+- products: [C]
+  rate: 0.2
+  reactants: [D, E]
