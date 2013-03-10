@@ -5,41 +5,41 @@
 [] a rea:system ;
     rea:hasReaction [ a rea:reaction ;
             rdfs:label "0" ;
-            rea:product _:N4df8596da3eb4ae2b50141c484ccf6e6 ;
+            rea:product _:C ;
             rea:rate 1e-01 ;
-            rea:reactant _:N842b75d91f8141daa283d6fb0a983f27,
-                _:N9a25c7bd4f094a63bf361659deb77e8b ],
+            rea:reactant _:A,
+                _:B ],
         [ a rea:reaction ;
             rdfs:label "3" ;
-            rea:product _:N4df8596da3eb4ae2b50141c484ccf6e6 ;
+            rea:product _:C ;
             rea:rate 2e-01 ;
-            rea:reactant _:N361a8df01a784f019cc79f519e650eff,
-                _:N36dd3517277845a58f38528fbbaaa67c ],
+            rea:reactant _:D,
+                _:E ],
         [ a rea:reaction ;
             rdfs:label "2" ;
-            rea:product _:N361a8df01a784f019cc79f519e650eff,
-                _:N36dd3517277845a58f38528fbbaaa67c ;
+            rea:product _:D,
+                _:E ;
             rea:rate 3e-01 ;
-            rea:reactant _:N4df8596da3eb4ae2b50141c484ccf6e6 ],
+            rea:reactant _:C ],
         [ a rea:reaction ;
             rdfs:label "1" ;
-            rea:product _:N842b75d91f8141daa283d6fb0a983f27,
-                _:N9a25c7bd4f094a63bf361659deb77e8b ;
+            rea:product _:A,
+                _:B ;
             rea:rate 3e-01 ;
-            rea:reactant _:N4df8596da3eb4ae2b50141c484ccf6e6 ] .
+            rea:reactant _:C ] .
 
-_:N361a8df01a784f019cc79f519e650eff a rea:species ;
+_:D a rea:species ;
     rdfs:label "D" .
 
-_:N36dd3517277845a58f38528fbbaaa67c a rea:species ;
+_:E a rea:species ;
     rdfs:label "E" .
 
-_:N842b75d91f8141daa283d6fb0a983f27 a rea:species ;
+_:A a rea:species ;
     rdfs:label "A" .
 
-_:N9a25c7bd4f094a63bf361659deb77e8b a rea:species ;
+_:B a rea:species ;
     rdfs:label "B" .
 
-_:N4df8596da3eb4ae2b50141c484ccf6e6 a rea:species ;
+_:C a rea:species ;
     rdfs:label "C" .
 
