@@ -43,9 +43,14 @@ class Formatter:
 
     def write(self,file,system):
         
-        rest="None" #Replace this with your solution for the rest of the XML model
+        reactions=[
+            builder.reaction(rate=str(reaction.rate),
+            *([builder.product(label=product.label) for product in reaction.products]+
+            [builder.reactant(label=reactant.label) for reactant in reaction.reactants])
+            ) for reaction in system.reactions
+        ]
         
-        self.root=builder.system(rest) # here, root is defined as a <system/> element
+        self.root=builder.system(*reactions) # here, root is defined as a <system/> element
 
         self.writeDOM(file)
 
