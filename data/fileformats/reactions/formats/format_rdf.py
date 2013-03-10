@@ -88,6 +88,8 @@ class Formatter(BaseFormatter):
         # each species needs its own node ID
         for species in system.species.values():
             species.node=rdflib.BNode()
+            self.graph.add((species.node,rdflib.RDF["type"],self.rea["species"]))
+            self.graph.add((species.node,rdflib.RDFS["label"],rdflib.Literal(species.label)))
 
         for number,reaction in enumerate(system.reactions):
             reaction_node=rdflib.BNode()
@@ -95,14 +97,12 @@ class Formatter(BaseFormatter):
             self.graph.add((reaction_node,rdflib.RDFS["label"],rdflib.Literal(str(number))))
             self.graph.add((reaction_node,rdflib.RDF["type"],self.rea["reaction"])) 
             self.graph.add((reaction_node,self.rea["rate"],rdflib.Literal(reaction.rate)))
+
             for reactant in reaction.reactants:
                 self.graph.add((reaction_node,self.rea["reactant"],reactant.node))
-                self.graph.add((reactant.node,rdflib.RDF["type"],self.rea["species"]))
-                self.graph.add((reactant.node,rdflib.RDFS["label"],rdflib.Literal(reactant.label)))
+
             for product in reaction.products:
                 self.graph.add((reaction_node,self.rea["product"],product.node))
-                self.graph.add((product.node,rdflib.RDF["type"],self.rea["species"]))
-                self.graph.add((product.node,rdflib.RDFS["label"],rdflib.Literal(product.label)))
                             
         self.graph.serialize(file,format=self.format_required())
     
