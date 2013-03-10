@@ -23,7 +23,7 @@ class Formatter(BaseFormatter):
     handles=["rdf","ttl"]
     def loadGraph(self,file):
         self.graph = rdflib.graph.Graph()
-        self.graph.parse(file)
+        self.graph.parse(file,format=self.format_required())
         
     def createGraph(self):
         self.graph=rdflib.graph.Graph()     
