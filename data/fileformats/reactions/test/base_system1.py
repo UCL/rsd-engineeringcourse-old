@@ -3,11 +3,20 @@ from ..system import System
 import tempfile
 import StringIO
 import fixtures
+from ..formats.formatter_factory import FormatterFactory
 
 class BaseSystem1Test(unittest.TestCase):
-
+    def initialise_formatters(self,extension,fixture_extension=None,**args):
+        self.extension=extension
+        self.fixture_extension=fixture_extension
+        if self.fixture_extension is None:
+            self.fixture_extension=extension
+        self.formatter_factory=FormatterFactory()
+        self.formatter=self.formatter_factory.formatter_for(self.extension,**args)
+        self.fixture_formatter=self.formatter_factory.formatter_for(self.fixture_extension,**args)
+        
     def parse_input(self):
-        return self.formatter.parse(fixtures.file_for(self.extension,'system1')) 
+        return self.fixture_formatter.parse(fixtures.file_for(self.fixture_extension,'system1')) 
         
     def write_temp(self,system):
         output=StringIO.StringIO() 

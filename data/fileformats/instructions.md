@@ -151,11 +151,14 @@ Check the tests pass.
 ------
 
 ###5.1: XDR Serialiser and parser
+
+Read about python xdrlib at `http://docs.python.org/2/library/xdrlib.html`
+
 Decide how to represent a reaction model as an XDR file format. Implement a serialiser and a parser for this format using the python XDR library.
 
 Don't forget to include a "magic number" and "version number" in your format, this helps to reduce binary files' "brittleness"
 
-###5.2: HDF5 Serialiser and parser
+###5.2: Extra credit: HDF5 Serialiser and parser
 Decide how to represent a reaction model as an HDF5 file format. Implement a serialiser and a parser for this format using the python HDF5 library.
 
 7: RDF
