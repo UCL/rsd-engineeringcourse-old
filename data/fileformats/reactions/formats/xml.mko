@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <system>
-	<%
-	# Put your mako solution here
-	%>
+	% for reaction in system.reactions:
+	<reaction rate="${reaction.rate}">
+		% for product in reaction.products:
+			<product label="${product.label}"/>
+		%endfor
+		% for reactant in reaction.reactants:
+			<reactant label="${reactant.label}"/>
+		%endfor
+	</reaction>
+	% endfor
 </system>
