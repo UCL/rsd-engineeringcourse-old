@@ -50,24 +50,13 @@ You should invent a way that seems plausible to you of storing a reaction system
 Using python CSV, write a parser that reads .csv files. You should put your code in reactions/formats/format_csv.py in the appropriate empty functions.
 A test has been written in reactions/test/test_csv.py 
 You should be able to run this test with:
-	> py.test
+	> py.test -k csv
 Modify your code until this test passes. Feel free to modify the test if it is not appropriate to your test case. You may want to add more tests.
 
 ###1.3: Write a serialiser
 
 Using python CSV, write code that writes .csv files. Appropriate tests have been written, which you can invoke with
-	> py.test
-
-You will probably find that you don't expect the output file to be exactly the same as your input example.
-You should add your output example to fixtures/system1out.csv
-Your code should be placed in reactions/csv.py in the appropriate empty functions.
-
-###1.4: Check support for large files
-The provided skeleton python program has built in functionality to create a random large reaction system. Run this with:
-	> python -m reactions --bigfile 100 --out reactions/test/fixtures/bigsystem.csv
-and bigsystem.csv should appear in your fixtures folder, and contain a big CSV system. When this works, the full set of tests invoked with
-	> py.test 
-should pass.
+	> py.test -k csv
 
 ###1.5: Extra credit: add support for comments
 Add support for comments at the end of a line, or on a separate line, with your choice of comment character.
@@ -122,34 +111,10 @@ Add tests and check they pass.
 
 ###5.1: XDR Serialiser and parser
 Decide how to represent a reaction model as an XDR file format. Implement a serialiser and a parser for this format using the python XDR library.
-###5.2: File size and timings comparisons
-Run 
-	> time python -m reactions --bigfile 10000 --out verybigsystem.yml
-to produce a very large YAML model.
-Run 
-	> time python -m reactions --bigfile 10000 --out verybigsystem.xdr
-to produce a very large XDR model.
-
-Compare the timings.
-Run
-	> time python -m reactions --in verybigsystem.yml --out out.null
-to read the very large YAML model.
-Run 
-	> time python -m reactions --in verybigsystem.xdr --out out.null
-to read the very large YAML model.
-
-Compare the timings.
-
-Compare the file sizes.
-Compress the files using zip, gzip, bzip, or your favourite compression tool.
-Compare the file sizes.
-Comment on what you find in a file notes.txt.
 
 6: HDF5
 ###5.1: HDF5 Serialiser and parser
 Decide how to represent a reaction model as an HDF5 file format. Implement a serialiser and a parser for this format using the python HDF5 library.
-###5.2: File size and timings comparisons
-Consider the relative performance of HDF5 for large files, as you did with XDR.
 
 7: RDF
 ------

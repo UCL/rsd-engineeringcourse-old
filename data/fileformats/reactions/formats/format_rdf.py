@@ -77,6 +77,7 @@ class Formatter:
         return system
     def write(self,file,system):
         self.createGraph()
+
         base=rdflib.BNode()
         self.graph.add((base,rdflib.RDF["type"],self.rea["system"]))
         # each species needs its own node ID
@@ -99,4 +100,4 @@ class Formatter:
                 self.graph.add((product.node,rdflib.RDFS["label"],rdflib.Literal(product.label)))
                             
         self.graph.serialize(file)
-          
+
