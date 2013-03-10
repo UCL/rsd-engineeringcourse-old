@@ -2,8 +2,8 @@ import base_system1 as base
 from ..formats.format_xdr import Formatter
 
 
-class TestXDR(base.BaseSystem1Test):
+class TestXDR():
 
     def setUp(self):
-        self.formatter=Formatter()
+        self.formatter=Formatter("xdr")
         self.extension="xdr"

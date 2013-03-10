@@ -42,7 +42,7 @@ class Formatter(BaseFormatter):
         pass
         
     def write(self,file,system):
-        if self.options["use_lxml"]:
+        if self.options.get("use_lxml"):
             self.writeBuilder(file,system)
         else:
             self.writeMako(file,system)
