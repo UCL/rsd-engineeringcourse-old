@@ -1,10 +1,11 @@
 from system import System
 from reaction import Reaction
 from species import Species
+from base_formatter import BaseFormatter
 
-class Formatter:
-    def handles(self):
-        return ["yaml"]
+
+class Formatter(BaseFormatter):
+    handles= ["yaml"]
     def parse(self,file):
         system=System()
         return system

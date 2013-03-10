@@ -1,6 +1,8 @@
 from system import System
 from reaction import Reaction
 from species import Species  
+from base_formatter import BaseFormatter
+
 
 import rdflib
 
@@ -11,12 +13,14 @@ rdflib.plugin.register(
         'sparql', rdflib.query.Result,
         'rdfextras.sparql.query', 'SPARQLQueryResult')
 
-class Formatter:
-    def __init__(self):
-        self.rea=rdflib.Namespace("http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#")
+class Formatter(BaseFormatter):
+    def __init__(self,handling_extension,**options):
+        BaseFormatter.__init__(self,handling_extension,**options)
+        self.rea=rdflib.Namespace(
+        "http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#"
+        )
         
-    def handles(self):
-        return ["rdf"]
+    handles=["rdf","ttl"]
     def loadGraph(self,file):
         self.graph = rdflib.graph.Graph()
         self.graph.parse(file)
@@ -80,6 +84,7 @@ class Formatter:
 
         base=rdflib.BNode()
         self.graph.add((base,rdflib.RDF["type"],self.rea["system"]))
+
         # each species needs its own node ID
         for species in system.species.values():
             species.node=rdflib.BNode()
@@ -99,5 +104,11 @@ class Formatter:
                 self.graph.add((product.node,rdflib.RDF["type"],self.rea["species"]))
                 self.graph.add((product.node,rdflib.RDFS["label"],rdflib.Literal(product.label)))
                             
-        self.graph.serialize(file)
-
+        self.graph.serialize(file,format=self.format_required())
+    
+    def format_required(self):
+        format_name_table=dict(
+            rdf="xml",
+            ttl="turtle"
+        )
+        return format_name_table[self.handling_extension]

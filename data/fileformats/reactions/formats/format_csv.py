@@ -3,10 +3,10 @@ import csv
 from system import System
 from reaction import Reaction
 from species import Species
+from base_formatter import BaseFormatter
 
-class Formatter:
-    def handles(self):
-        return ["csv"]
+class Formatter(BaseFormatter):    
+    handles=["csv"]
     def parse(self,file):
         system=System()
         reader=csv.reader(file)

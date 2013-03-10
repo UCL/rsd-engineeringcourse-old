@@ -17,21 +17,21 @@ class FormatterFactory:
         self.extensions=['csv','hdf5','json','null','rdf','xdr','xml','yaml']
         
         self.formatters={}
-        self.formatters['csv']=format_csv.Formatter()
-        self.formatters['hdf5']=format_hdf5.Formatter()
-        self.formatters['json']=format_json.Formatter()
-        self.formatters['null']=format_null.Formatter()
-        self.formatters['rdf']=format_rdf.Formatter()
-        self.formatters['xdr']=format_xdr.Formatter()
-        self.formatters['xml']=format_xml.Formatter()
-        self.formatters['yaml']=format_yaml.Formatter()
+        self.formatters['csv']=format_csv.Formatter
+        self.formatters['hdf5']=format_hdf5.Formatter
+        self.formatters['json']=format_json.Formatter
+        self.formatters['null']=format_null.Formatter
+        self.formatters['rdf']=format_rdf.Formatter
+        self.formatters['xdr']=format_xdr.Formatter
+        self.formatters['xml']=format_xml.Formatter
+        self.formatters['yaml']=format_yaml.Formatter
         
         for extension in self.extensions:
-            for extra_extension in self.formatters[extension].handles():
+            for extra_extension in self.formatters[extension].handles:
                 if extension==extra_extension:
                     continue
                 self.formatters[extra_extension]=self.formatters[extension]
                 
-    def formatter_for(self,extension):
-        return self.formatters[extension]
+    def formatter_for(self,extension,**options):
+        return self.formatters[extension](extension,**options)
          
