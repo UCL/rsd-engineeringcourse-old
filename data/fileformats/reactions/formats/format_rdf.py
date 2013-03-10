@@ -20,7 +20,7 @@ class Formatter(BaseFormatter):
         "http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#"
         )
         
-    handles=["rdf"]
+    handles=["rdf","ttl"]
     def loadGraph(self,file):
         self.graph = rdflib.graph.Graph()
         self.graph.parse(file)
@@ -48,6 +48,14 @@ class Formatter(BaseFormatter):
         base=rdflib.BNode()
         self.graph.add((base,rdflib.RDF["type"],self.rea["system"]))
         
-        self.graph.serialize(file)
-
-          
+        # PUT YOUR SOLUTION HERE
+        
+        
+        self.graph.serialize(file,format=self.format_required())
+    
+    def format_required(self):
+        format_name_table=dict(
+            rdf="xml",
+            ttl="turtle"
+        )
+        return format_name_table[self.handling_extension]  
