@@ -20,8 +20,10 @@ class Formatter(BaseFormatter):
         self.tree = etree.ElementTree(self.root)
         file.write(etree.tostring(self.tree,pretty_print=True,xml_declaration=True,encoding='UTF-8'))  
         
-    def queryXpath(self,query):
-        return self.tree.xpath(query)
+    def queryXpath(self,query,start=None):
+        if not start:
+            start=self.tree
+        return start.xpath(query)   
         
     def makoTemplate(self):
         here = os.path.dirname(__file__) 
