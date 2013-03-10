@@ -33,6 +33,15 @@ You are assumed to know:
 4. Basic GIT.
 
 You should fork this repo on GitHub into your own account, check out the `trainee_answers` branch, and make your changes to complete the exercises. You can look at suggested answers by the author in the `author_answers` branch.
+ 
+0: Getting started
+------------------
+
+1. Go to `http://github.com/` and sign up for an account if you've not already got one
+2. Go to `https://github.com/UCL-RC-softdev/training`
+3. Hit fork, top right, and choose to fork to your personal account
+4. Clone your fork to your computer: `git clone git@github.com:MYUSERNAME/ucl-rc-training.git`
+5. Switch to the trainee answers branch: `git branch trainee_answers`
 
 1: CSV
 ------
@@ -65,9 +74,10 @@ Using python CSV, write code that writes .csv files. Appropriate tests have been
 	> py.test -k csv
 
 You will probably find that you don't expect the output file to be exactly the same as your input example.
-The tests have been defined to ensure the model "round-trip"s successfully. You can see the actual content of your output file with:
+The tests have been defined to ensure the model "round-trip"s successfully. You can see the actual content of your output file, to help with diagnosing problems, with:
 
-	python -m reactions --in test/fixtures/system1.csv --out sample.csv
+	> python -m reactions --in test/fixtures/system1.csv --out sample.csv
+	> cat sample.csv
 
 Your code should be placed in reactions/csv.py in the appropriate empty functions.
 
@@ -77,84 +87,109 @@ You should add an extra test.
 
 2: XML
 ------
+ 
+###2.0: Learn about XML
+
+Read the w3schools XML tutorials at:
+
+* http://www.w3schools.com/xml/xml_whatis.asp
+* http://www.w3schools.com/dom/dom_intro.asp
+* http://www.w3schools.com/xpath/xpath_intro.asp
 
 ###2.1: Fixture and parser
 
-Invent an XML file format for reaction systems, save it in the fixtures folder as system1.xml, and write a parser in reactions/formats/format_xml.py. Use the python module elementtree to implement your parser. Tests have been written for you in test_xml.py.
+Invent an XML file format for reaction systems, save it in the fixtures folder as system1.xml, and write a parser in `reactions/formats/format_xml.py`. Use the python module `lxml`, using XPATH to query the DOM, to implement your parser. Tests have been written for you in `test_xml.py`.
 
 ###2.2: Serialiser using Mako
 
-Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in reactions/formats/format_xml.py, and the mako template in reactions/xml.mko
+Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in `reactions/formats/format_xml.py`, and the mako template in `reactions/xml.mko`
 
-###2.3: Extra credit: Using lxml
+###2.3: Extra credit: Serialiser via DOM
 
-Write mako code to create your XML file format using lxml, by building up your DOM. The scaffold code has been written to enable this option using --nomako
+Write mako code to create your XML file format using lxml, by building up your DOM. The scaffold code has been written to enable this option using `--nomako`
        
 ###2.4: Extra credit: To your neighbour's format using XSLT
 
-Read about XSLT at http://www.w3schools.com/xsl/xsl_intro.asp 
-Obtain a copy of system1.xml from your neighbour (they should be able to email it to you).
+Read about XSLT at:
+
+* http://www.w3schools.com/xsl/xsl_intro.asp
+ 
+Obtain a copy of system1.xml from your neighbour (add their repository as a second remote if you're a git ninja, or get them to email it to you).
 Write an XSL transform to produce your neighbour's XML format from your own. Invoke your transform using xsltproc.
-If you're working alone on this project, then you should look at the authors' answers (in the *author_answers* branch on this repo) and write a transform to produce that output.
+If you're working alone on this project, then you should look at the authors' answers (in the `author_answers` branch on this repo) and write a transform to produce that output.
 
 ###2.5: Extra credit: To Latex using Mako
 
 Write a mako template to produce a pretty rendering in Latex of your reaction system.
  
 ###2.6: Extra credit: XML Schema
+ 
+Read about XML Schema at `http://www.w3schools.com/schema/schema_intro.asp`
 
-Write an XML Schema for your file format, put it in reactions/schemas/reaction.xsd 
+Write an XML Schema for your file format, put it in `reactions/schemas/reaction.xsd` 
+
 Check your XML fixture validates against the schema using xmllint, e.g.:
+
 	> xmllint --noout --schema reactions/schemas/reaction.xsd 
-Add code to your program to validate XML files against the schema before loading them, using ***.
+
+Add code to your program to validate XML files against the schema before loading them, using `lxml`.
 
 
 3: YAML and JSON 
 -------
 
 ###3.1 YAML
-Write a fixture, serialiser, and parser for YAML using Pyyaml, placing the work into the appropriate files.
+Write a fixture, serialiser, and parser for YAML using `pyyaml`, placing the work into the appropriate files.
 Check the tests pass. 
+
 ###3.2 Extra credit: JSON
 Write a fixture, serialiser and parser for JSON using Y.
 Add tests and check they pass.
 
-5: XDR
+5: Binary formats
 ------
 
 ###5.1: XDR Serialiser and parser
 Decide how to represent a reaction model as an XDR file format. Implement a serialiser and a parser for this format using the python XDR library.
 
-6: HDF5
-###5.1: HDF5 Serialiser and parser
+Don't forget to include a "magic number" and "version number" in your format, this helps to reduce binary files' "brittleness"
+
+###5.2: HDF5 Serialiser and parser
 Decide how to represent a reaction model as an HDF5 file format. Implement a serialiser and a parser for this format using the python HDF5 library.
 
 7: RDF
 ------
 
 ###7.0: Read about RDF
-You should read through the W3Schools RDF tutorial at http://www.w3schools.com/rdf/rdf_intro.asp and the python RDF library docs at https://rdflib.readthedocs.org/en/latest/gettingstarted.html   
+You should read through the W3Schools RDF tutorial at
 
-You should use easy_install or pip to install rdflib and rdfextras
+* http://www.w3schools.com/rdf/rdf_intro.asp
+
+and the python RDF library docs at 
+
+* https://rdflib.readthedocs.org/en/latest/gettingstarted.html   
+
+You should use `easy_install` or `pip` to install `rdflib` and `rdfextras`
  
 ###7.1: Create an RDF file for reactions
  
-A starting ontology has been begun in reactions/schemas/ontology, you can use these terms in your file.
-You should create your example file in system1.rdf: we've set up a scaffold for you.
+A starting ontology has been begun in `reactions/schemas/ontology`, you can use these terms in your file.
+You should create your example file in `system1.rdf`: we've set up a scaffold for you.
  
 ###7.2: Write a parser and a serialiser
-There's a lot of boiler plate to get right using Python's rdflib, so the work of importing the ontologies, creating the triple store, and reading and writing the files has been done for you.
+There's a lot of boiler plate to get right using Python's `rdflib`, so the work of importing the ontologies, creating the triple store, and reading and writing the files has been done for you.
 
 ###7.3: (Extra credit) Modify the ontology
 
 The existing ontology is just a skeleton, mentioning that the classes exist.
-You can use OWL http://www.w3.org/TR/2004/REC-owl-guide-20040210/ to specify the relationships of the entities.
-This would make it easier for someone else's program to automatically understand your format
 
-You could also use owl:sameAs to declare that your concepts are the same as those in another format. That's how you
-make your formats understandable to the world. 
-You could link your entities to terms from the systems biology ontology. An OWL file for SBO is at http://www.ebi.ac.uk/sbo/exports/Main/SBO_OWL.owl
-The root namespace for this ontology is at http://biomodels.net/SBO/, so in XML/RDF, the SBO entity for a "rate constant" can be referred to unambiguously as http://biomodels.net/SBO/#SBO:0000009
+You can use OWL `http://www.w3.org/TR/2004/REC-owl-guide-20040210/` to specify the relationships of the entities. This would make it easier for someone else's program to automatically understand your format
+
+You could also use `owl:sameAs` to declare that your concepts are the same as those in another format. That's how you make your formats understandable to the world. 
+For example, you could link your entities to terms from the systems biology ontology. 
+
+An OWL file for SBO is at `http://www.ebi.ac.uk/sbo/exports/Main/SBO_OWL.owl`
+The root namespace for this ontology is at `http://biomodels.net/SBO/`, so in XML/RDF, the SBO entity for a "rate constant" can be referred to unambiguously as `http://biomodels.net/SBO/#SBO:0000009 `
 You might want to consider using the following elements from the systems biology ontology:
 
 * 0000009
