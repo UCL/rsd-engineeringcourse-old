@@ -13,6 +13,7 @@ class Formatter(BaseFormatter):
         for reaction in model:
             system.add(reaction.get("reactants"),reaction.get("products"),reaction["rate"])
 
+
         return system
 
     def write(self,file,system):
@@ -24,6 +25,6 @@ class Formatter(BaseFormatter):
         ) for reaction in system.reactions
         ]
 
-        # Dump as json
+        # Dump as yaml
 
         yaml.dump(model,file)

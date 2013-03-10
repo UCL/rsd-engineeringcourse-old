@@ -10,6 +10,7 @@ class Formatter(BaseFormatter):
         system=System()
         
         model = json.load(file)
+
         for reaction in model:
             system.add(reaction.get("reactants"),reaction.get("products"),reaction["rate"])
 
@@ -27,3 +28,4 @@ class Formatter(BaseFormatter):
         # Dump as json
 
         json.dump(model,file)  
+
