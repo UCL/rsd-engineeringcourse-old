@@ -23,7 +23,7 @@ class Formatter(BaseFormatter):
     def queryXpath(self,query,start=None):
         if not start:
             start=self.tree
-        return start.xpath(query)
+        return start.xpath(query)   
         
     def makoTemplate(self):
         here = os.path.dirname(__file__) 
