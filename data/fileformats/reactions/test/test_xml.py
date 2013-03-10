@@ -7,3 +7,9 @@ class TestXML(base.BaseSystem1Test):
     def setUp(self):
         self.formatter=Formatter("xml",use_lxml=True)
         self.extension="xml"
+        
+class TestXMLMako(base.BaseSystem1Test):
+
+    def setUp(self):
+        self.formatter=Formatter("xml")
+        self.extension="xml" 
