@@ -42,6 +42,7 @@ You should fork this repo on GitHub into your own account, check out the `traine
 3. Hit fork, top right, and choose to fork to your personal account
 4. Clone your fork to your computer: `git clone git@github.com:MYUSERNAME/ucl-rc-training.git`
 5. Switch to the trainee answers branch: `git branch trainee_answers`
+6. Commit your work as you go.
 
 1: CSV
 ------
