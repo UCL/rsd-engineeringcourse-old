@@ -1,1 +1,6 @@
-Put your example JSON file here
+[
+	{"reactants": ["A", "B"], "products": ["C"], "rate": 0.1}, 
+	{"reactants": ["C"], "products": ["D", "E"], "rate": 0.3}, 
+	{"reactants": ["C"], "products": ["A", "B"], "rate": 0.3}, 
+	{"reactants": ["D", "E"], "products": ["C"], "rate": 0.2}
+]
