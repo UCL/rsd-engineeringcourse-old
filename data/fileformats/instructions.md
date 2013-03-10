@@ -94,7 +94,11 @@ Read the w3schools XML tutorials at:
 
 * http://www.w3schools.com/xml/xml_whatis.asp
 * http://www.w3schools.com/dom/dom_intro.asp
-* http://www.w3schools.com/xpath/xpath_intro.asp
+* http://www.w3schools.com/xpath/xpath_intro.asp  
+
+And the python lxml tutorial at:
+
+* http://lxml.de/tutorial.html
 
 ###2.1: Fixture and parser
 
