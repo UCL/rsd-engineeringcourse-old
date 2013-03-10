@@ -47,6 +47,6 @@ class Formatter(BaseFormatter):
                 packer.pack_string(reactant.label)
             packer.pack_uint(len(reaction.products))
             for product in reaction.products:
-                packer.pack_string(reactant.label)
+                packer.pack_string(product.label)
         file.write(packer.get_buffer())
              
