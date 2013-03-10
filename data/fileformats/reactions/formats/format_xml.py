@@ -32,7 +32,10 @@ class Formatter:
         return system
 
     def write(self,file,system):
-        self.root=builder.system() # here, root is defined as a <system/> element
+        
+        rest="None" #Replace this with your solution for the rest of the XML model
+        
+        self.root=builder.system(rest) # here, root is defined as a <system/> element
 
         self.writeDOM(file)
 
