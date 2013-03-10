@@ -1,4 +1,5 @@
 from lxml import etree
+from lxml.builder import E as builder
 
 from system import System
 from reaction import Reaction
@@ -12,14 +13,9 @@ class Formatter:
         self.tree = etree.parse(file)
         self.root = self.tree.getroot()
         
-    def createDOM(self):
-        self.root=etree.XML('''\
-<?xml version="1.0"?>
-<system>
-</system>
-''')
-
+    def writeDOM(self,file):
         self.tree = etree.ElementTree(self.root)
+        file.write(etree.tostring(self.tree,pretty_print=True,xml_declaration=True,encoding='UTF-8'))  
         
     def queryXpath(self,query):
         return self.tree.xpath(query)
@@ -36,8 +32,9 @@ class Formatter:
         return system
 
     def write(self,file,system):
-        self.createDOM()
+        self.root=builder.system() # here, root is defined as a <system/> element
+
+        self.writeDOM(file)
+
         
-        # put your solution here
-        
-        file.write(etree.tostring(self.tree,pretty_print=True,xml_declaration=True,encoding='UTF-8'))   
+ 
