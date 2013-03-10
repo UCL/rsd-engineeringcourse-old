@@ -4,10 +4,10 @@ from lxml.builder import E as builder
 from system import System
 from reaction import Reaction
 from species import Species
+from base_formatter import BaseFormatter
 
-class Formatter:
-    def __init__(self):
-        pass
+
+class Formatter(BaseFormatter):
 
     def loadDOM(self,file):
         self.tree = etree.parse(file)
@@ -20,8 +20,7 @@ class Formatter:
     def queryXpath(self,query):
         return self.tree.xpath(query)
 
-    def handles(self):
-        return ["xml"]
+    handles= ["xml"]
 
     def parse(self,file):
         self.loadDOM(file)
@@ -31,13 +30,22 @@ class Formatter:
         
         return system
 
-    def write(self,file,system):
+    def writeBuilder(self,file,system):
         
         rest="None" #Replace this with your solution for the rest of the XML model
         
         self.root=builder.system(rest) # here, root is defined as a <system/> element
 
         self.writeDOM(file)
+        
+    def writeMako(self,file,system):
+        pass
+        
+    def write(self,file,system):
+        if self.options["use_lxml"]:
+            self.writeBuilder(file,system)
+        else:
+            self.writeMako(file,system)
 
         
  

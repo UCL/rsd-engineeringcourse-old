@@ -1,10 +1,11 @@
 from system import System
 from reaction import Reaction
 from species import Species
+from base_formatter import BaseFormatter
 
-class Formatter:
-    def handles(self):
-        return ["null"]
+
+class Formatter(BaseFormatter):
+    handles=["null"]
     def parse(self,file):
         system=System()
         return system

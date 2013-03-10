@@ -11,6 +11,7 @@ class Reactions:
         self.parser.add_argument("--in", help="Input file")
         self.parser.add_argument("--out", help="Output file")
         self.parser.add_argument("--bigfile",type=int)
+        self.parser.add_argument("--nodom",action='store_true', default=False,help='Use lxml builder for xml instead of mako')
         self.formatter_factory = formats.formatter_factory.FormatterFactory()
         options,extra = self.parser.parse_known_args(clargs)
         
@@ -21,7 +22,7 @@ class Reactions:
         self.in_type_string=os.path.splitext(self.infile)[-1][1:]
         self.out_type_string=os.path.splitext(self.outfile)[-1][1:]
         self.in_formatter=self.formatter_factory.formatter_for(self.in_type_string)
-        self.out_formatter=self.formatter_factory.formatter_for(self.out_type_string)
+        self.out_formatter=self.formatter_factory.formatter_for(self.out_type_string,use_lxml=options.nodom)
         
     def act(self):
         self.system=self.in_formatter.parse(open(self.infile)) 

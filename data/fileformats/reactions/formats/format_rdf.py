@@ -1,6 +1,8 @@
 from system import System
 from reaction import Reaction
 from species import Species  
+from base_formatter import BaseFormatter
+
 
 import rdflib
 
@@ -11,12 +13,14 @@ rdflib.plugin.register(
         'sparql', rdflib.query.Result,
         'rdfextras.sparql.query', 'SPARQLQueryResult')
 
-class Formatter:
-    def __init__(self):
-        self.rea=rdflib.Namespace("http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#")
+class Formatter(BaseFormatter):
+    def __init__(self,handling_extension,**options):
+        BaseFormatter.__init__(self,handling_extension,**options)
+        self.rea=rdflib.Namespace(
+        "http://raw.github.com/UCL-RC-softdev/training/master/data/fileformats/reactions/schemas/ontology#"
+        )
         
-    def handles(self):
-        return ["rdf"]
+    handles=["rdf"]
     def loadGraph(self,file):
         self.graph = rdflib.graph.Graph()
         self.graph.parse(file)
