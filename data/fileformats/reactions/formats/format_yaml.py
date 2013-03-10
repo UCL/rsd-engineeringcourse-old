@@ -5,7 +5,7 @@ from base_formatter import BaseFormatter
 
 
 class Formatter(BaseFormatter):
-    handles= ["yaml"]
+    handles= ["yaml", "yml"]
     def parse(self,file):
         system=System()
         return system
