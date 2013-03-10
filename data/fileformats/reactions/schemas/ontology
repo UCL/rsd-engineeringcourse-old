@@ -13,6 +13,7 @@
 	<owl:Class rdf:ID="reactant"/>
 	<owl:Class rdf:ID="product"/>
 	<owl:Class rdf:ID="rate"/>
+	<owl:Class rdf:ID="species"/>
 </owl:Ontology> 
 
 </rdf:RDF>
