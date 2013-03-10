@@ -212,4 +212,4 @@ Read:
 
 * http://en.wikipedia.org/wiki/Turtle_%28syntax%29
 
-and fill in the turtle example in format_ttl.py as usual.
+Fill in the turtle example in system1.ttl as usual. The existing RDF xml code should just work for turtle too.
