@@ -5,5 +5,5 @@ from ..formats.format_xml import Formatter
 class TestXML(base.BaseSystem1Test):
 
     def setUp(self):
-        self.formatter=Formatter("xml")
+        self.formatter=Formatter("xml",use_lxml=True)
         self.extension="xml"
