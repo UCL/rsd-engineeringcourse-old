@@ -27,7 +27,7 @@ class Formatter(BaseFormatter):
         
     def makoTemplate(self):
         here = os.path.dirname(__file__) 
-        return mk.Template(open(os.path.join(here,'xml.mko')).read())
+        return mk.Template(open(os.path.join(here,'xml.mko')).read(),output_encoding='UTF-8')
 
     handles= ["xml"]
 
