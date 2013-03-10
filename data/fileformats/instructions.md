@@ -161,8 +161,9 @@ Decide how to represent a reaction model as an HDF5 file format. Implement a ser
 ------
 
 ###7.0: Read about RDF
-You should read through the W3Schools RDF tutorial at
+You should read through some more W3Schools tutorials:
 
+* http://www.w3schools.com/xml/xml_namespaces.asp
 * http://www.w3schools.com/rdf/rdf_intro.asp
 
 and the python RDF library docs at 
@@ -201,3 +202,10 @@ You might want to consider using the following elements from the systems biology
 
 But you may find better choices, or make reference to a different ontology.
 
+###7.4: Extra credit: Use Turtle instead of RDF/XML
+
+Read:
+
+* http://en.wikipedia.org/wiki/Turtle_%28syntax%29
+
+and fill in the turtle example in format_ttl.py as usual.
