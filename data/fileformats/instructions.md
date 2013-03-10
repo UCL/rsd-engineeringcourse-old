@@ -25,42 +25,51 @@ The formats to be used will be guessed from the file extensions. Empty methods h
 Prerequisites
 -------------
 
-You are assumed to know:
+You are assumed to know: 
+
 1. Basic python
 2. Basic unit testing in python with pyunit.
 3. Attendance at introductory talk (see file in this repository)
 4. Basic GIT.
 
-You should fork this repo on GitHub into your own account, check out the *trainee_answers* branch, and make your changes to complete the exercises. You can look at suggested answers by the author in the *author_answers* branch.
+You should fork this repo on GitHub into your own account, check out the `trainee_answers` branch, and make your changes to complete the exercises. You can look at suggested answers by the author in the `author_answers` branch.
 
 1: CSV
 ------
 ###1.0: Read about CSV 
 
-Wiki pages: http://en.wikipedia.org/wiki/Comma-separated_values
-http://en.wikipedia.org/wiki/Delimiter-separated_values
-http://www.creativyst.com/Doc/Articles/CSV/CSV01.htm
+Wiki pages: 
+
+* http://en.wikipedia.org/wiki/Comma-separated_values
+* http://en.wikipedia.org/wiki/Delimiter-separated_values
+* http://www.creativyst.com/Doc/Articles/CSV/CSV01.htm
 
 ###1.1: Write a fixture
 
-You should invent a way that seems plausible to you of storing a reaction system in a comma-separated variable file. Create a test system using your format by hand, describing the example system above, and save it in reactions/test/fixtures/system1.csv.
+You should invent a way that seems plausible to you of storing a reaction system in a comma-separated variable file. Create a test system using your format by hand, describing the example system above, and save it in `reactions/test/fixtures/system1.csv`.
 
 ###1.2: Write a parser
 
-Using python CSV, write a parser that reads .csv files. You should put your code in reactions/formats/format_csv.py in the appropriate empty functions.
-A test has been written in reactions/test/test_csv.py 
+Using python CSV, write a parser that reads .csv files. You should put your code in `reactions/formats/format_csv.py` in the appropriate empty functions.
+A test has been written in `reactions/test/test_csv.py` 
 You should be able to run this test with:
-	> py.test -k csv
+
+	> py.test -k 'csv parse'
+
 Modify your code until this test passes. Feel free to modify the test if it is not appropriate to your test case. You may want to add more tests.
 
 ###1.3: Write a serialiser
 
 Using python CSV, write code that writes .csv files. Appropriate tests have been written, which you can invoke with
+
 	> py.test -k csv
 
-	You will probably find that you don't expect the output file to be exactly the same as your input example.
-	You should add your output example to fixtures/system1out.csv
-	Your code should be placed in reactions/csv.py in the appropriate empty functions.
+You will probably find that you don't expect the output file to be exactly the same as your input example.
+The tests have been defined to ensure the model "round-trip"s successfully. You can see the actual content of your output file with:
+
+	python -m reactions --in test/fixtures/system1.csv --out sample.csv
+
+Your code should be placed in reactions/csv.py in the appropriate empty functions.
 
 ###1.5: Extra credit: add support for comments
 Add support for comments at the end of a line, or on a separate line, with your choice of comment character.
