@@ -25,3 +25,9 @@ class System:
         self.reactions.append(reaction.Reaction(system_reactants, system_products, forward))
         if reverse:
             self.reactions.append(reaction.Reaction(system_products, system_reactants, reverse))
+
+    def __str__(self):
+        return "; ".join(sorted(str(x) for x in sorted(self.reactions)))
+        
+    def __eq__(self,other):
+        return str(self)==str(other)  
