@@ -28,7 +28,7 @@ class Formatter(BaseFormatter):
         packer.pack_uint(Formatter.magic)
         packer.pack_uint(Formatter.version)
 
-        # Your XDR solution here
+        #Your XDR solution here
 
         file.write(packer.get_buffer())
              
