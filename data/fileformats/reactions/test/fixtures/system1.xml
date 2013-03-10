@@ -1,3 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <system>
+	<reaction rate="0.1">
+		<reactant label="A"/>
+		<reactant label="B"/>	
+		<product label="C"/>
+	</reaction>
+
+	<reaction rate="0.3">
+		<reactant label="C"/>
+		<product label="D"/>	
+		<product label="E"/>
+	</reaction>
+
+	<reaction rate="0.3">
+		<product label="A"/>
+		<product label="B"/>	
+		<reactant label="C"/>
+	</reaction>
+
+	<reaction rate="0.2">
+		<product label="C"/>
+		<reactant label="D"/>	
+		<reactant label="E"/>
+	</reaction> 
 </system>
