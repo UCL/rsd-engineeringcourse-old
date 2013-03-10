@@ -1,10 +1,13 @@
 from lxml import etree
 from lxml.builder import E as builder
+import mako.template as mk 
 
 from system import System
 from reaction import Reaction
 from species import Species
 from base_formatter import BaseFormatter
+
+import os
 
 
 class Formatter(BaseFormatter):
@@ -21,6 +24,10 @@ class Formatter(BaseFormatter):
         if not start:
             start=self.tree
         return start.xpath(query)
+        
+    def makoTemplate(self):
+        here = os.path.dirname(__file__) 
+        return mk.Template(open(os.path.join(here,'xml.mko')).read())
 
     handles= ["xml"]
 
@@ -53,8 +60,8 @@ class Formatter(BaseFormatter):
 
         self.writeDOM(file)
         
-    def writeMako(self,file,system):
-        pass
+    def writeMako(self,file,system): 
+        file.write(self.makoTemplate().render(system=system))
         
     def write(self,file,system):
         if self.options.get("use_lxml"):

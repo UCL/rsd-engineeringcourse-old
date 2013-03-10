@@ -106,7 +106,7 @@ Invent an XML file format for reaction systems, save it in the fixtures folder a
 
 ###2.2: Serialiser using Mako
 
-Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in `reactions/formats/format_xml.py`, and the mako template in `reactions/xml.mko`
+Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in `reactions/formats/format_xml.py`, and the mako template in `reactions/formats/xml.mko`
 
 ###2.3: Extra credit: Serialiser via DOM
 
@@ -121,10 +121,6 @@ Read about XSLT at:
 Obtain a copy of system1.xml from your neighbour (add their repository as a second remote if you're a git ninja, or get them to email it to you).
 Write an XSL transform to produce your neighbour's XML format from your own. Invoke your transform using xsltproc.
 If you're working alone on this project, then you should look at the authors' answers (in the `author_answers` branch on this repo) and write a transform to produce that output.
-
-###2.5: Extra credit: To Latex using Mako
-
-Write a mako template to produce a pretty rendering in Latex of your reaction system.
  
 ###2.6: Extra credit: XML Schema
  
