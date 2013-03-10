@@ -5,5 +5,5 @@ from ..formats.format_csv import Formatter
 class TestCSV(base.BaseSystem1Test):
 
     def setUp(self):
-        self.formatter=Formatter()
+        self.formatter=Formatter("csv")
         self.extension="csv"

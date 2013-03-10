@@ -14,5 +14,5 @@ class TestRenderEngagements(unittest.TestCase):
         self.assertEqual(reactions.outfile,"somethingelse.rdf")
     def test_get_formatter(self):
         reactions=Reactions(shlex.split("--in something.csv --out somethingelse.rdf"))
-        self.assertEqual(reactions.in_formatter.handles(),['csv'])
-        self.assertEqual(reactions.out_formatter.handles(),['rdf'])
+        self.assertEqual(reactions.in_formatter.handles,['csv'])
+        self.assertEqual(reactions.out_formatter.handles,['rdf','ttl'])
