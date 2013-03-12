@@ -18,6 +18,7 @@ C   <-> D+E with forward rate constant 0.3 s^-1 and reverse rate constant 0.2 mo
 Your objective will be to provide *parsers* and *serialisers* for this model for a number of different file formats. In doing so, you will explore issues around choice and capabilities of different ways of serialising data.
  
 The skeleton code in the provided reaction module has been set up to convert between file formats:
+
 	python -m reactions --in system1.csv --out system1.xml 
 	
 The formats to be used will be guessed from the file extensions. Empty methods have been created to read and write each of the file types we will be working with: you will be asked to fill in each of these as we progress. 
@@ -40,8 +41,8 @@ You should fork this repo on GitHub into your own account, check out the `traine
 1. Go to `http://github.com/` and sign up for an account if you've not already got one
 2. Go to `https://github.com/UCL-RC-softdev/training`
 3. Hit fork, top right, and choose to fork to your personal account
-4. Clone your fork to your computer: `> git clone git@github.com:MYUSERNAME/ucl-rc-training.git`
-5. cd to this unit `> cd training/data/fileformats/reactions
+4. Clone your fork to your computer: `> git clone http://github.com/MY_USERNAME/ucl-rits-training.git`
+5. cd to this unit `> cd training/data/fileformats/reactions`
 6. Switch to the trainee answers branch: `> git branch trainee_answers`    
 7. Observe the failing tests: `> py.test` which you will fix as you work.
 8. Commit your work as you go.

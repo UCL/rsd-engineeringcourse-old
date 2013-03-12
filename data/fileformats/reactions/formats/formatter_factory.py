@@ -2,7 +2,6 @@
 # since this is teaching code
 
 import format_csv
-import format_hdf5
 import format_json
 import format_null
 import format_rdf
@@ -14,11 +13,10 @@ import importlib
 class FormatterFactory:
      
     def __init__(self):
-        self.extensions=['csv','hdf5','json','null','rdf','xdr','xml','yaml']
+        self.extensions=['csv','json','null','rdf','xdr','xml','yaml']
         
         self.formatters={}
         self.formatters['csv']=format_csv.Formatter
-        self.formatters['hdf5']=format_hdf5.Formatter
         self.formatters['json']=format_json.Formatter
         self.formatters['null']=format_null.Formatter
         self.formatters['rdf']=format_rdf.Formatter
