@@ -2,7 +2,7 @@ from lxml import etree
 from lxml.builder import E as builder
 import mako.template as mk 
 
-from system import System
+from reaction_system import System
 from reaction import Reaction
 from species import Species
 from base_formatter import BaseFormatter
