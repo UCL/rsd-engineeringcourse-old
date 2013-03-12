@@ -40,9 +40,11 @@ You should fork this repo on GitHub into your own account, check out the `traine
 1. Go to `http://github.com/` and sign up for an account if you've not already got one
 2. Go to `https://github.com/UCL-RC-softdev/training`
 3. Hit fork, top right, and choose to fork to your personal account
-4. Clone your fork to your computer: `git clone git@github.com:MYUSERNAME/ucl-rc-training.git`
-5. Switch to the trainee answers branch: `git branch trainee_answers`
-6. Commit your work as you go.
+4. Clone your fork to your computer: `> git clone git@github.com:MYUSERNAME/ucl-rc-training.git`
+5. cd to this unit `> cd training/data/fileformats/reactions
+6. Switch to the trainee answers branch: `> git branch trainee_answers`    
+7. Observe the failing tests: `> py.test` which you will fix as you work.
+8. Commit your work as you go.
 
 1: CSV
 ------
