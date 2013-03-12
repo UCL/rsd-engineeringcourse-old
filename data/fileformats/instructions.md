@@ -57,6 +57,7 @@ Wiki pages:
 * http://en.wikipedia.org/wiki/Comma-separated_values
 * http://en.wikipedia.org/wiki/Delimiter-separated_values
 * http://www.creativyst.com/Doc/Articles/CSV/CSV01.htm
+* http://docs.python/org/2/library/csv.html
 
 ###1.1: Write a fixture
 
