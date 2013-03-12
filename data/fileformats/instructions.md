@@ -107,11 +107,11 @@ Invent an XML file format for reaction systems, save it in the fixtures folder a
 
 ###2.2: Serialiser using Mako
 
-Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in `reactions/formats/format_xml.py`, and the mako template in `reactions/formats/xml.mko`
+Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in `reactions/formats/format_xml.py`, and the mako template in `reactions/formats/xml.mko`. The scaffold code has been written to enable this option using `--nodom`
 
-###2.3: Extra credit: Serialiser via DOM
+###2.3: Serialiser via DOM
 
-Write mako code to create your XML file format using lxml, by building up your DOM. The scaffold code has been written to enable this option using `--nomako`
+Write mako code to create your XML file format using lxml, by building up your DOM. 
        
 ###2.4: Extra credit: To your neighbour's format using XSLT
 
@@ -140,13 +140,18 @@ Add code to your program to validate XML files against the schema before loading
 -------
 
 ###3.1 YAML
+Read about YAML at `http://www.yaml.org/` and `http://pyyaml.org/wiki/PyYAMLDocumentation`.
+
 Write a fixture, serialiser, and parser for YAML using `pyyaml`, placing the work into the appropriate files.
+
 Check the tests pass. 
 
 ###3.2 Extra credit: JSON
-Write a fixture, serialiser and parser for JSON using the python standard library.
-See `http://docs.python.org/2/library/json.html`
-Check the tests pass.
+
+Read about json at `http://en.wikipedia.org/wiki/JSON` and `http://docs.python.org/2/library/json.html`
+
+Write a fixture, serialiser and parser for JSON using the python `json` module.
+Add tests and check they pass.
 
 5: Binary formats
 ------
