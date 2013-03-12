@@ -1,5 +1,5 @@
 import unittest
-from ..system import System
+from ..reaction_system import System
 import tempfile
 import StringIO
 import fixtures

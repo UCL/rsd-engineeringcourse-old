@@ -1,5 +1,5 @@
 import unittest
-from ..system import System 
+from ..reaction_system import System 
 
 class TestSystem(unittest.TestCase):
 
