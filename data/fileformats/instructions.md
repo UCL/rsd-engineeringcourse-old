@@ -44,7 +44,7 @@ You should fork this repo on GitHub into your own account, check out the `traine
 4. Clone your fork to your computer: `> git clone http://github.com/MY_USERNAME/ucl-rits-training.git`
 5. cd to this unit `> cd training/data/fileformats/reactions`
 6. Switch to the trainee answers branch: `> git branch trainee_answers`
-7. Install some python modules `sudo easy_install lxml rdflib rdfextras`    
+7. Install some python modules `sudo easy_install pytest yaml lxml rdflib rdfextras`    
 8. Observe the failing tests: `> py.test` which you will fix as you work.
 9. Commit your work as you go.
 
