@@ -2,7 +2,7 @@ import sys
 import os
 import argparse
 
-from system import *
+from reaction_system import *
 import formats.formatter_factory
 
 class Reactions:
