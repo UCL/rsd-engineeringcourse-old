@@ -144,7 +144,7 @@ Write a fixture, serialiser, and parser for YAML using `pyyaml`, placing the wor
 Check the tests pass. 
 
 ###3.2 Extra credit: JSON
-Write a fixture, serialiser and parser for JSON using Y.
+Write a fixture, serialiser and parser for JSON using the python `json` module.
 Add tests and check they pass.
 
 5: Binary formats
