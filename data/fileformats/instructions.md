@@ -18,6 +18,7 @@ C   <-> D+E with forward rate constant 0.3 s^-1 and reverse rate constant 0.2 mo
 Your objective will be to provide *parsers* and *serialisers* for this model for a number of different file formats. In doing so, you will explore issues around choice and capabilities of different ways of serialising data.
  
 The skeleton code in the provided reaction module has been set up to convert between file formats:
+
 	python -m reactions --in system1.csv --out system1.xml 
 	
 The formats to be used will be guessed from the file extensions. Empty methods have been created to read and write each of the file types we will be working with: you will be asked to fill in each of these as we progress. 
