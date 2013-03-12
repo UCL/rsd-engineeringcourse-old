@@ -140,10 +140,16 @@ Add code to your program to validate XML files against the schema before loading
 -------
 
 ###3.1 YAML
+Read about YAML at `http://www.yaml.org/` and `http://pyyaml.org/wiki/PyYAMLDocumentation`.
+
 Write a fixture, serialiser, and parser for YAML using `pyyaml`, placing the work into the appropriate files.
+
 Check the tests pass. 
 
 ###3.2 Extra credit: JSON
+
+Read about json at `http://en.wikipedia.org/wiki/JSON` and `http://docs.python.org/2/library/json.html`
+
 Write a fixture, serialiser and parser for JSON using the python `json` module.
 Add tests and check they pass.
 
