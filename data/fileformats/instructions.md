@@ -107,7 +107,7 @@ Invent an XML file format for reaction systems, save it in the fixtures folder a
 
 ###2.2: Serialiser using Mako
 
-Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in `reactions/formats/format_xml.py`, and the mako template in `reactions/formats/xml.mko`. The scaffold code has been written to enable this option using `--nomako`
+Write mako code to create your XML file format. The provided tests will check it comes out exactly the same as your fixture. Code to invoke Mako has already been put in `reactions/formats/format_xml.py`, and the mako template in `reactions/formats/xml.mko`. The scaffold code has been written to enable this option using `--nodom`
 
 ###2.3: Serialiser via DOM
 
