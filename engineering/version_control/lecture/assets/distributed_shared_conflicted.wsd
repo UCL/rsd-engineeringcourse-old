@@ -1,0 +1,47 @@
+participant Jim as J
+participant "Jim's repo" as Jr
+participant Origin as O
+participant "Sue's repo" as Sr
+participant Susan as S
+
+parallel{
+state over J: work
+state over S: work
+}
+
+parallel{
+J -> Jr: commit
+S -> Sr: commit
+}
+
+Sr->O: push
+Jr-->O: failed push
+
+parallel{
+O->Jr: pull
+Jr->J: pull
+}         
+ 
+parallel{
+state over J: resolve conflicts
+state over S: work 
+}
+
+parallel{
+S->Sr: commit
+J->Jr: commit
+}
+parallel{
+state over J: work
+state over S: work 
+}
+
+parallel{
+Jr->O: push
+S->Sr: commit
+}
+
+parallel{
+O->Sr: pull
+Sr->S: pull
+}

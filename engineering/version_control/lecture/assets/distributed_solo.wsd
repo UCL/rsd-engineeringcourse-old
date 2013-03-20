@@ -1,0 +1,24 @@
+participant "Jim's repo"
+participant "Jim's index"
+participant Jim
+state over Jim: work
+parallel{
+Jim->Jim's index: create
+Jim's index->Jim's repo: create
+}
+Jim->Jim's index: add
+Jim's index->Jim's repo: Commit
+parallel{
+state over Jim: work
+state over "Jim's repo": a1c3
+}
+Jim->Jim's index: Add
+Jim's index->Jim's repo: Commit
+parallel{
+state over Jim: work
+state over "Jim's repo": acb2
+}
+parallel{
+Jim->Jim's index: add
+Jim's index->Jim's repo: commit
+}

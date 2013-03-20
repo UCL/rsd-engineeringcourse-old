@@ -1,0 +1,24 @@
+title Centralized VCS team workflow
+
+state over Server: 1
+Server->Jim : Checkout
+Server->Sue: Checkout
+state over Jim: work
+Jim->Server: Commit
+state over Server: 2
+Server->Sue: Update
+state over Sue: work
+Sue->Server: Commit
+state over Server: 3
+Server->Jim: Update
+parallel{
+state over Jim: work
+state over Sue: work
+}
+Jim->Server: Commit
+state over Server: 4
+Sue-->Server: Failed commit
+Server->Sue: Update
+state over Sue: Resolve conflicts
+Sue->Server: Commit
+state over Server: 5

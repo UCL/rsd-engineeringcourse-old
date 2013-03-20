@@ -1,0 +1,20 @@
+participant Origin
+participant "Jim's repo"
+participant "Jim's index"
+participant Jim
+
+parallel{
+Origin->Jim's repo: clone
+Jim's repo->Jim's index: clone
+Jim's index->Jim: clone
+}
+state over Jim: work
+Jim->Jim's index: add
+Jim's index->Jim's repo: Commit
+Jim's repo->Origin: push
+state over Jim: work
+parallel{
+Jim->Jim's index: add
+Jim's index->Jim's repo: commit
+}
+Jim's repo->Origin: push

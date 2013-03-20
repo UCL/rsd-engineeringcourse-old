@@ -1,0 +1,8 @@
+state over Server: 1
+Server->Jim : Checkout
+state over Jim: work
+Jim->Server: Commit
+state over Server: 2
+state over Jim: work
+Jim->Server: Commit
+state over Server: 3

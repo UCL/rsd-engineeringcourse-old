@@ -1,0 +1,45 @@
+participant Jim as J
+participant "Jim's repo" as Jr
+participant Origin as O
+participant "Sue's repo" as Sr
+participant Sue as S
+
+parallel{
+state over J: work
+note left of J
+test
+end note
+}
+
+parallel{
+J->Jr: init
+}
+
+O-->Jr: track
+Jr->O: push
+
+parallel{
+O->Sr: clone
+Sr->S: clone
+}
+state over S: work
+parallel{
+S->Sr: commit
+}
+Sr->O: push
+O->Jr: fetch
+parallel{
+Jr->J: merge
+}
+state over J: work
+parallel{
+J->Jr: commit
+}
+Jr->O: push
+parallel{
+O->Sr: pull
+Sr->S: pull
+}
+
+
+

@@ -1,0 +1,16 @@
+import os
+
+pandoc_beamer=Builder(action='pandoc -t beamer --template=lecture -V theme:ucl $SOURCE -o $TARGET')
+web_sequence_builder=Builder(action='python -m websequence --in $SOURCE --out $TARGET',
+    suffix='.png',
+    src_suffix='.wsd')
+env=Environment()
+env.Append(BUILDERS={'Pandoc':pandoc_beamer})
+env.Append(BUILDERS={'WSD':web_sequence_builder})
+
+lecture=env.Pandoc('lecture.pdf','lecture.md')
+Depends(lecture,'lecture.beamer')
+Depends(lecture,'beamerthemeucl.sty')
+for source in Glob('assets/*.wsd'):
+    png=env.WSD(source)
+    Depends(lecture,png)
