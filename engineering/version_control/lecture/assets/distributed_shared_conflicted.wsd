@@ -2,7 +2,7 @@ participant Jim as J
 participant "Jim's repo" as Jr
 participant Origin as O
 participant "Sue's repo" as Sr
-participant Susan as S
+participant Sue as S
 
 parallel{
 state over J: work
