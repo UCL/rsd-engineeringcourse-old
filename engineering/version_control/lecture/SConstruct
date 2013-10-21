@@ -1,20 +1,70 @@
 import os
 
-pandoc_beamer=Builder(action='pandoc -t beamer --template=lecture -V theme:ucl $SOURCE -o $TARGET')
-
+pandoc_beamer=Builder(action='pandoc -t beamer --template=lecture'+
+	' -V theme:ucl'+
+	' --default-image-extension=pdf'
+	' $SOURCE -o $TARGET')
+pandoc_reveal=Builder(action='pandoc -t revealjs -s -V theme=beige'+
+	' --css=beige.css'+
+	' --css=slidetheme.css'+
+	' --default-image-extension=png'
+	' --mathjax '+
+	' -V revealjs-url=http://lab.hakim.se/reveal-js/'+
+	' $SOURCES -o $TARGET')
 # The next step uses the module from https://github.com/jamespjh/jamespjh-wsd/
 # Install via python setup.py, then put a ~/.wsd/config.yml with 
 # key: YOURWSDKEY
-web_sequence_builder=Builder(action='python -m websequence --style magazine --format=pdf --in $SOURCE --out $TARGET',
+web_sequence_pdf_builder=Builder(action='python -m websequence --style magazine --format=pdf --in $SOURCE --out $TARGET',
     suffix='.pdf',
     src_suffix='.wsd')
-env=Environment()
-env.Append(BUILDERS={'Pandoc':pandoc_beamer})
-env.Append(BUILDERS={'WSD':web_sequence_builder})
 
-lecture=env.Pandoc('lecture.pdf','lecture.md')
-Depends(lecture,'lecture.beamer')
-Depends(lecture,'beamerthemeucl.sty')
+web_sequence_png_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
+    suffix='.png',
+    src_suffix='.wsd')
+
+graphviz_dot_pdf_builder=Builder(action="dot -Tpdf $SOURCE -o $TARGET", suffix=".pdf", src_suffix=".dot")
+graphviz_neato_pdf_builder=Builder(action="neato -Tpdf $SOURCE -o $TARGET", suffix=".pdf", src_suffix=".dot")
+
+graphviz_dot_png_builder=Builder(action="dot -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
+graphviz_neato_png_builder=Builder(action="neato -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
+
+env=Environment()
+env.Append(BUILDERS={'Beamer':pandoc_beamer})
+env.Append(BUILDERS={'WSDPDF':web_sequence_pdf_builder})
+env.Append(BUILDERS={'DotPDF':graphviz_dot_pdf_builder})
+env.Append(BUILDERS={'NeatoPDF':graphviz_neato_pdf_builder})
+env.Append(BUILDERS={'WSDPNG':web_sequence_png_builder})
+env.Append(BUILDERS={'DotPNG':graphviz_dot_png_builder})
+env.Append(BUILDERS={'NeatoPNG':graphviz_neato_png_builder})
+env.Append(BUILDERS={'Reveal':pandoc_reveal})
+
+
+beamer_slides=env.Beamer('beamer_slides.pdf','lecture.md')
+Depends(beamer_slides,'lecture.beamer')
+Depends(beamer_slides,'beamerthemeucl.sty')
+
+reveal_slides=env.Reveal('reveal/index.html','lecture.md')
+
+for static_image in ["assets/redball.png","assets/laptop.png"]:
+	for format in [reveal_slides,beamer_slides]:
+		Depends(format,static_image)
+	env.Install('reveal/assets',static_image)
+
 for source in Glob('assets/*.wsd'):
-    png=env.WSD(source)
-    Depends(lecture,png)
+    pdf=env.WSDPDF(source)
+    png=env.WSDPNG(source)
+    Depends(beamer_slides,pdf)
+    Depends(reveal_slides,png)
+    env.Install('reveal/assets',png)
+for source in Glob('assets/*.dot'):
+    pdf=env.DotPDF(source)
+    png=env.DotPNG(source)
+    Depends(beamer_slides,pdf)
+    Depends(reveal_slides,png)
+    env.Install('reveal/assets',png)
+for source in Glob('assets/*.nto'):
+	pdf=env.NeatoPDF(source)
+	png=env.NeatoPNG(source)
+	Depends(beamer_slides,pdf)
+	Depends(reveal_slides,png)
+	env.Install('reveal/assets',png)
