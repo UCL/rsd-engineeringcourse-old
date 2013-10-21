@@ -5,7 +5,7 @@ pandoc_beamer=Builder(action='pandoc -t beamer --template=lecture'+
 	' --default-image-extension=pdf'
 	' $SOURCE -o $TARGET')
 pandoc_reveal=Builder(action='pandoc -t revealjs -s -V theme=beige'+
-	' --css=beige.css'+
+	' --css=night.css'+
 	' --css=slidetheme.css'+
 	' --default-image-extension=png'
 	' --mathjax '+

@@ -18,13 +18,13 @@ What is version control?
 
 Do some programming
 
-    my_vcs commit
+`my_vcs commit`
 
 Program some more
 
 Realise mistake
 
-    my_vcs rollback
+`my_vcs rollback`
 
 Mistake is undone
 
