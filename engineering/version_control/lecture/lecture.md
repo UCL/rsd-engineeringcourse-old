@@ -42,4 +42,4 @@ Create some code
                     
 Distributed team workflow with conflicts
 ----------------------------------------
-![Image showing workflow](assets/distributed_shared_conflicted.png)\
+![Image showing workflow](assets/distributed_shared_conflicted.pdf)\

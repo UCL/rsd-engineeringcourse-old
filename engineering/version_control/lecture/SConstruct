@@ -5,8 +5,8 @@ pandoc_beamer=Builder(action='pandoc -t beamer --template=lecture -V theme:ucl $
 # The next step uses the module from https://github.com/jamespjh/jamespjh-wsd/
 # Install via python setup.py, then put a ~/.wsd/config.yml with 
 # key: YOURWSDKEY
-web_sequence_builder=Builder(action='python -m websequence --in $SOURCE --out $TARGET',
-    suffix='.png',
+web_sequence_builder=Builder(action='python -m websequence --style magazine --format=pdf --in $SOURCE --out $TARGET',
+    suffix='.pdf',
     src_suffix='.wsd')
 env=Environment()
 env.Append(BUILDERS={'Pandoc':pandoc_beamer})
