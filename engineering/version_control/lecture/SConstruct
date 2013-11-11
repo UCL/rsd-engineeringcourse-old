@@ -11,15 +11,10 @@ pandoc_reveal=Builder(action='pandoc -t revealjs -s -V theme=night'+
 # Allow option to accept checked-in versions of WSD figures
 # Because don't want to generate these dynamically in production
 generate_WSD_figures=False
-if generate_WSD_figures:
-	web_sequence_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
-	    suffix='.png',
-	    src_suffix='.wsd')
-else:
-	web_sequence_builder=Builder(action='echo "Not generating WSD  figures"',
-	    suffix='.png',
-	    src_suffix='.wsd')
 
+web_sequence_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
+    suffix='.png',
+    src_suffix='.wsd')
 graphviz_dot_builder=Builder(action="dot -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
 graphviz_neato_builder=Builder(action="neato -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
 
@@ -35,9 +30,10 @@ def assetpath(node):
 	return os.path.join('reveal','assets',
 		os.path.basename(os.path.splitext(env.GetBuildPath(node))[0])+'.png')
 
-for source in Glob('figures/*.wsd'):
-    png=env.WSD(assetpath(source),source)
-    Depends(reveal_slides,png)
+if generate_WSD_figures:
+	for source in Glob('figures/*.wsd'):
+	    png=env.WSD(assetpath(source),source)
+	    Depends(reveal_slides,png)
 for source in Glob('figures/*.dot'):
     png=env.Dot(assetpath(source),source)
     Depends(reveal_slides,png)
