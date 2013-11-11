@@ -9,7 +9,7 @@ pandoc_reveal=Builder(action='pandoc -t revealjs -s -V theme=night'+
 	' $SOURCES -o $TARGET')
 
 # Allow option to accept checked-in versions of WSD figures
-# Because don't want to generate these dynamically in production
+# Because don't want to generate these dynamically in production
 generate_WSD_figures=False
 
 web_sequence_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
